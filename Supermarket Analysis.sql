@@ -2,7 +2,7 @@ SELECT EXTRACT (ISODOW FROM date) AS day_of_the_week
 FROM sales
 
 CREATE TABLE sales (
-	invoice_id VARCHAR(20) NOT NULL PRIMARY KEY,
+	id VARCHAR(20) NOT NULL PRIMARY KEY,
 	branch VARCHAR(2) NOT NULL,
 	city VARCHAR(20) NOT NULL,
 	customer_type VARCHAR(20) NOT NULL,
@@ -29,7 +29,7 @@ FROM sales;
 SELECT COUNT(*)
 FROM sales;
 
-SELECT COUNT(DISTINCT invoice_id) 
+SELECT COUNT(DISTINCT id) 
 FROM sales
 
 SELECT *
@@ -92,7 +92,7 @@ SET day_period = (CASE WHEN time BETWEEN '6:00' AND '12:00'
 -- Checking for null values in the dataset
 SELECT *
 FROM sales
-WHERE invoice_id IS NULL 
+WHERE id IS NULL 
 	AND total IS NULL
 	AND time IS NULL
 	AND date IS NULL
